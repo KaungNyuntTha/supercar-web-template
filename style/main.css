@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap');
+*{
+    padding: 0; margin: 0; box-sizing: border-box;
+}
+:root{
+    --primary:#00c2de;
+}
+body{
+    background: #000;    
+    font-family: 'Roboto', sans-serif;
+}
+/* header starts */
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 100px;
+    z-index: 1000;
+}
+header::after{
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 100px;
+    height: 5px;
+    width: 40%;
+    background: linear-gradient(-90deg, transparent, var(--primary));
+}
+header .logo{
+    font-size: 30px;
+    color: #fff;
+}
+.logo img{
+    max-width: 200px;
+    filter: invert(1);
+}
+header .year{
+    font-size: 1em;
+    color: #fff;
+    margin-top: 40px;
+    letter-spacing: 1px;
+    font-weight: 800;
+}
+header .menu{
+    position: relative;
+    height: 30px;
+    width: 30px;
+    background: url(../Gallery/Logo/menu-3-fill.png) no-repeat;
+    background-size: 30px;
+    background-position: center;
+    filter: invert(1);
+    cursor: pointer;
+}
+header .menu.active{
+    position: relative;
+    height: 30px;
+    width: 30px;
+    background: url(../Gallery/Logo/close-line.png) no-repeat;
+    background-size: 35px;
+    background-position: center;
+    filter: invert(1);
+    cursor: pointer;
+}
+/* header ends */
+
+/* banner starts */
+.nav{
+    z-index: 200;
+    position: absolute;
+    right: 100px;
+    top: 0;
+    width: 30%;
+    height: 5px;
+    border-bottom: 5px solid;
+    border-image: linear-gradient(
+        90deg,
+        transparent,
+        var(--primary),
+        var(--primary)
+    )30;
+    background: transparent;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+    transform-origin: right;
+}
+.nav.active{
+    top: 100px;
+    width: 40%;
+    height: 80px;
+    border-top: 5px solid;
+    border-bottom: none;
+    border-image: linear-gradient(
+        90deg,
+        transparent,
+        var(--primary),
+        var(--primary),
+        transparent
+        )
+        30;
+}
+.nav li{
+    position: relative;
+    list-style: none;
+    opacity: 0; 
+    visibility: hidden;
+    transform: translateY(-100px);
+    transition: .5s;
+}
+.nav.active li{
+    transform: translateY(0);
+    visibility: visible;
+    opacity: 1;
+}
+.nav li a{
+    font-size: 15px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: 8px 10px;
+    transition: .2s;
+    cursor: pointer;
+}
+.nav li a:hover{
+    box-shadow: inset 0 0 20px rgba(0, 194, 222, .5);
+}
+.banner{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 0 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+    transition: .5s;
+}
+.banner::after{
+    position: absolute;
+    content: '';
+    top: 0;left: 0;right: 0;bottom: 0;
+    width: 100%; height: 100%;
+    background: radial-gradient(
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0.9),
+    );
+}
+.banner::before{
+    position: absolute;
+    content: '';
+    top: 25%;left: 0;
+    width: 5px;
+    height: 40%;
+    background: linear-gradient(var(--primary),var(--primary), transparent);
+    z-index: 100;
+}
+/* background video */
+.banner .bg-video{
+    display: none;
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.banner .bg-video.active{
+    display: block;
+}
+/* banner content */
+.banner .content{
+    position: relative;
+    max-width: 700px;
+    padding-bottom: 200px;
+    z-index: 100;
+}
+.banner .content h1{
+    font-family: 'Racing Sans One', cursive;
+    font-size: 6em;
+    color:#fff;
+    font-weight: 500;
+    line-height: .8em;
+    letter-spacing: 5px;
+    padding-bottom: 10px;
+}
+.banner .content .model{
+    font-size:  2em;
+    text-transform: uppercase;
+    color: var(--primary);
+    display: none;
+}
+.banner .content .model.active{
+    display: block;
+    padding-bottom: 10px;
+}
+.banner .content p{
+    color: #fff;
+    font-size: 200;
+    letter-spacing: 1px;
+    margin-bottom: 50px;
+}
+.banner .content a{
+    position: relative;
+    width: 200px;
+    font-size: 1em;
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 60px;
+    background: transparent;
+    border-bottom: 3px solid;
+    border-image: linear-gradient(
+        90deg,
+        transparent,
+        var(--primary),
+        var(--primary),
+        transparent
+    )
+    30;
+    box-shadow: inset 0 0 10px rgba(0, 194, 222, 0.5);
+    backdrop-filter: blur(20px);
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 1px;
+    transition: .5s;
+}
+.banner .content a:hover{
+    box-shadow: inset 0 0 50px rgba(0, 194, 222, .5);
+}
+/* screen */
+.banner .screen{
+    position: absolute;
+    right: 10%;
+    bottom: 100px;
+    width: 300px;
+    height: 200px;
+    transform-style: preserve-3d;
+    animation: animate 30s linear infinite;
+    z-index: 100;
+}
+@keyframes animate {
+    0% {
+            transform: rotateX(-30deg) rotateY(0deg);
+        }
+    
+        100% {
+            transform: rotateX(-30deg) rotateY(360deg);
+        }
+}
+.screen div{
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+.screen div span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: linear-gradient(transparent, var(--primary));
+    transform: rotateY(calc(90deg * var(--i))) translateZ(150px);
+}
+.shadow{
+    position: absolute;
+    top: 0;left: 0;
+    width: 300px;
+    height: 200px;
+    background: var(--primary);
+    transform: rotateX(-90deg) translateZ(150px);
+    filter: blur(20px);
+    box-shadow: 0 0 120px rgba(0, 194, 222, .5),
+    0 0 120px rgba(0, 194, 222, .4),
+    0 0 120px rgba(0, 194, 222, .6),
+    0 0 120px rgba(0, 194, 222, .8),
+    0 0 120px rgba(0, 194, 222, 1);
+}
+/*screen video  */
+.screen div span video{
+    position: absolute;
+    bottom: 0;
+    height: 75%;
+    width: 100%;
+    transition: .5s;
+    object-fit: cover;
+    object-position: center;
+}
+.trailer{
+    display: none;
+}
+.trailer.active{
+    display: block;
+}
+/* banner ends */
